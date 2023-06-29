@@ -5,6 +5,10 @@
 # docker run -d -p 3000:3000 flowise
 
 FROM node:18-alpine
+
+ENV HTTP_PROXY http://127.0.0.1:8889
+ENV HTTPS_PROXY $HTTP_PROXY
+
 RUN apk add --update libc6-compat python3 make g++
 # needed for pdfjs-dist
 RUN apk add --no-cache build-base cairo-dev pango-dev
